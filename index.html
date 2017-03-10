@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Alarm by Zamanbek</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+					<span class="icon major fa-cloud"></span>
+					<h1>Welcome to site of<strong><br> Nurzhigitov Zamanbek</strong><br />
+					
+					
+					
+					<ul class="actions">
+						<li><a href="#one" class="button scrolly">Alarm</a></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="main style1">
+				<div class="container">
+					<div class="row 150%">
+						<div class="6u 12u$(medium)">
+							<header class="major">
+								<h2>
+							Do you always forgot about the time and feel difficult in managing it? This alarm introduces new opportunities to control your time and make your life easier<br>
+								<strong>How does it work?</strong></h2>
+							</header>
+							<p>There are 3 panels: for hours, minutes and seconds. Set the time and wait until the end of it. When time is up you will hear pleasant music<br>That's all!<br>Also you are available to use it countless times and mage suggestion for improvement your work<br>Thank you for using this timer!</p>
+						</div>
+						<div class="6u$ 12u$(medium) important(medium)">
+							<img src="images/alarm.png">
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="main style2">
+	<script src = "assets/js/clockscript.js"></script>
+<div id='clock'>Текущее время</div> <br><br><br>
+
+
+</style>
+<audio id="xyz" src="The Weeknd - Reminder.mp3" preload="auto"></audio>
+<script type="text/javascript">
+
+var jsalarm={
+	padfield:function(f){
+		return (f<10)? "0"+f : f
+	},
+
+
+	showcurrenttime:function(){
+		var dateobj=new Date()
+		var ct=this.padfield(dateobj.getHours())+":"+this.padfield(dateobj.getMinutes())+":"+this.padfield(dateobj.getSeconds())
+		this.ctref.innerHTML=ct
+		this.ctref.setAttribute("title", ct)
+		if (typeof this.hourwake!="undefined"){ //if alarm is set
+			if (this.ctref.title==(this.hourwake+":"+this.minutewake+":"+this.secondwake)){
+				clearInterval(jsalarm.timer)
+				document.getElementById('xyz').play();
+				alert("Пора вставать");
+				   			}
+		}
+	},
+	init:function(){
+		var dateobj=new Date()
+		this.ctref=document.getElementById("clock")
+		this.submitref=document.getElementById("submitbutton")
+		this.submitref.onclick=function(){
+			jsalarm.setalarm()
+			this.value="Alarm Set"
+			this.disabled=true
+			return false
+		}
+		this.resetref=document.getElementById("resetbutton")
+		this.resetref.onclick=function(){
+		jsalarm.submitref.disabled=false
+		jsalarm.hourwake=undefined
+		jsalarm.hourselect.disabled=false
+		jsalarm.minuteselect.disabled=false
+		jsalarm.secondselect.disabled=false
+		return false
+		}
+		var selections=document.getElementsByTagName("select")
+		this.hourselect=selections[0]
+		this.minuteselect=selections[1]
+		this.secondselect=selections[2]
+		for (var i=0; i<60; i++){
+			if (i<24) //If still within range of hours field: 0-23
+			this.hourselect[i]=new Option(this.padfield(i), this.padfield(i), false, dateobj.getHours()==i)
+			this.minuteselect[i]=new Option(this.padfield(i), this.padfield(i), false, dateobj.getMinutes()==i)
+			this.secondselect[i]=new Option(this.padfield(i), this.padfield(i), false, dateobj.getSeconds()==i)
+
+		}
+		jsalarm.showcurrenttime()
+		jsalarm.timer=setInterval(function(){jsalarm.showcurrenttime()}, 1000)
+	},
+	setalarm:function(){
+		this.hourwake=this.hourselect.options[this.hourselect.selectedIndex].value
+		this.minutewake=this.minuteselect.options[this.minuteselect.selectedIndex].value
+		this.secondwake=this.secondselect.options[this.secondselect.selectedIndex].value
+		this.hourselect.disabled=true
+		this.minuteselect.disabled=true
+		this.secondselect.disabled=true
+	}
+}
+
+</script>
+<form action="" method="">
+<div id="jsalarmclock">
+<div><div class="leftcolumn"></div> <span id="clock" style="letter-spacing: 4px"></span></div>
+<div><div class="leftcolumn">Hour</div><span><select></select><br>Minutes</span> <span><select></select><br>Seconds</span> <span><select></select><br></span></div><br><br>
+<input type="submit" value="Set Alarm!" id="submitbutton" /> <input type="reset" value="reset" id="resetbutton" /><button onclick="myFunction()">Stop music</button>
+<script>
+	myfunction:function(){
+
+document.getElementById('xyz').stop();
+}
+
+</script>
+</div>
+</form>
+<br>
+<br>
+
+
+<script type="text/javascript">
+
+jsalarm.init()
+
+</script>
+
+		
+		<!-- Four -->
+			<section id="four" class="main style2 special">
+				<div class="container">
+					<header class="major">
+						<h2>Thanks for using my alarm</h2>
+					</header>
+					<p>About me:<br>
+					email:<strong>zamanbek.nurzhigitov@gmail.com</strong><br>
+					Phone number: <strong>87712250025</strong>
+					</p>
+					<ul class="actions uniform">
+						
+					
+			</section>
+
+
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="icons">
+					<li><a href="http://steamcommunity.com/profiles/76561198285570682/" class="icon alt fa-steam"><span class="label">Steam</span></a></li>
+					<li><a href="https://twitter.com/ZamanbekNurzhi1" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="https://www.facebook.com/zamanbek.nurzhigitov.58" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="https://www.instagram.com/nurzhigitov.zamanbek/" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="https://github.com/YunoG" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Nurzhigitov Zamanbek</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+				
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
